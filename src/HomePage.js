@@ -6,6 +6,7 @@ import Background from './assests/homeImage.jpg';
 import 'typeface-roboto';
 import './HomePage.css';
 import Skills from './Skills';
+import NewNavbar from './NewNavbar';
 
 const useStyles = makeStyles(theme => ({
   homeContent: {
@@ -42,6 +43,9 @@ const HomePage = props => {
 
   return (
     <div>
+      <div>
+        <NewNavbar />
+      </div>
       <Grid item xs={12}>
         <section className={classes.homeImage}>
           <div>
@@ -69,8 +73,6 @@ const HomePage = props => {
           </div>
         </section>
       </Grid>
-
-      {/* <div><NewNavbar /></div> */}
       <div>
         <Skills />
       </div>
