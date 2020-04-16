@@ -3,6 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: [
+      'Allura',
+      'sans-serif',
+      'brandon-grotesque',
+      'HelveticaNeue-Light',
+      'Helvetica Neue Light',
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      'Lucida Grande',
+      'Mada',
+    ],
+  },
+});
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
