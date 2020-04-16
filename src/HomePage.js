@@ -1,19 +1,35 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography, Avatar } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Background from './assests/homeImage.jpg';
-import 'typeface-roboto';
+import AvatarImage from './assests/avatar.jpg';
 import './HomePage.css';
 import Skills from './Skills';
-import NewNavbar from './NewNavbar';
+import Navbar from './Navbar';
 
-const useStyles = makeStyles(theme => ({
-  homeContent: {
-    fontFamily: 'Helvetica Neue',
+const useStyles = makeStyles((theme) => ({
+  avatar: {
+    height: theme.spacing(15),
+    width: theme.spacing(15),
+  },
+  titleName: {
+    fontFamily: '"Allura", cursive',
     fontStyle: 'normal',
-    fontSize: '40px',
-    color: 'white',
+    fontSize: '75px',
+    lineHeight: '85px',
+    fontWeight: 'normal',
+    color: '#1b242f',
+    margin: 'auto',
+    textAlign: 'center',
+  },
+  subTitleName: {
+    fontFamily: '"Mada", sans-serif',
+    fontStyle: 'normal',
+    fontSize: '24px',
+    lineHeight: '35px',
+    fontWeight: 'normal',
+    color: '#1b242f',
     margin: 'auto',
     textAlign: 'center',
   },
@@ -33,31 +49,32 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    // margin: "0px",
     padding: '0px',
   },
 }));
 
-const HomePage = props => {
+const HomePage = (props) => {
   const classes = useStyles();
 
   return (
     <div>
-      <div>
-        <NewNavbar />
-      </div>
+      <Navbar />
       <Grid item xs={12}>
         <section className={classes.homeImage}>
+          <Avatar src={AvatarImage} className={classes.avatar} />
           <div>
-            <p className={classes.homeContent}>
-              Hello I'm
-              <span className={classes.typo}>Aruni Patel</span>.
-            </p>
-            <p className={classes.homeContent}>I'm Web Developer.</p>
-
+            <Typography varient="h3" className={classes.titleName}>
+              I'm Jaydeep
+            </Typography>
+            <Typography variant="h5" className={classes.subTitleName}>
+              a full stack developer
+            </Typography>
             <div
               className="homeWork"
-              style={{ '&:hover': { backgroundColor: '#555' } }}
+              style={{
+                borderRadius: '25px',
+                '&:hover': { backgroundColor: '#555' },
+              }}
             >
               View my work
               <ArrowForwardIcon
