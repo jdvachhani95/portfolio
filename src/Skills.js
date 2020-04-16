@@ -3,9 +3,8 @@ import PieChart from './PieChart';
 import Progressbar from './Progressbar';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import NewNavbar from './NewNavbar';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   skills: {
     height: '100vh',
     width: '100%',
@@ -35,7 +34,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Skills = props => {
+const Skills = (props) => {
   const classes = useStyles();
 
   return (
