@@ -78,6 +78,7 @@ const useStyles = makeStyles((theme) => ({
     float: 'left',
     justifyContent: 'center',
     alignItems: 'center',
+    marginRight: '25px',
   },
 
   center: {
