@@ -1,17 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography, Avatar } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Background from './assests/homeImage.jpg';
-import AvatarImage from './assests/avatar.jpg';
 import './HomePage.css';
-import Skills from './Skills';
+import AboutMe from './AboutMe';
 import Navbar from './Navbar';
 
 const useStyles = makeStyles((theme) => ({
-  avatar: {
-    height: theme.spacing(15),
-    width: theme.spacing(15),
+  root: {
+    // backgroundColor: '#e5eaee',
   },
   titleName: {
     fontFamily: '"Allura", cursive',
@@ -57,11 +55,10 @@ const HomePage = (props) => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.root}>
       <Navbar />
       <Grid item xs={12}>
         <section className={classes.homeImage}>
-          <Avatar src={AvatarImage} className={classes.avatar} />
           <div>
             <Typography varient="h3" className={classes.titleName}>
               I'm Jaydeep
@@ -91,7 +88,7 @@ const HomePage = (props) => {
         </section>
       </Grid>
       <div>
-        <Skills />
+        <AboutMe />
       </div>
     </div>
   );
