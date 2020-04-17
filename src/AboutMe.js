@@ -87,13 +87,26 @@ const AboutMe = (props) => {
           md={7}
           style={{ display: 'flex', justifyContent: 'flex-end' }}
         >
-          <img className={classes.gridImg} alt="img1" src={aboutMe1} />
+          <img
+            className={classes.gridImg}
+            alt="img1"
+            src={aboutMe1}
+            style={{ marginRight: '50px' }}
+          />
         </Grid>
         <Grid item xs={12} md={5}>
-          <Typography variant="h2" className={classes.title1}>
+          <Typography
+            variant="h2"
+            className={classes.title1}
+            style={{ textAlign: 'left', marginLeft: '50px' }}
+          >
             Hi
           </Typography>
-          <Typography variant="h6" className={classes.content}>
+          <Typography
+            variant="h6"
+            className={classes.content}
+            style={{ textAlign: 'left', marginLeft: '50px' }}
+          >
             I'm a full stack developer, living in Toronto, Canada. I have a
             passion for web developement & programming. I have 2+ years
             experience in full stak developement.
