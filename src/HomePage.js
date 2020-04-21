@@ -65,12 +65,16 @@ const HomePage = (props) => {
   const scrollToResources = () => scrollToRef(resourcesRef);
   const skillsRef = useRef(null);
   const scrollToSkills = () => scrollToRef(skillsRef);
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div className={classes.root}>
       <Navbar
         scrollToResources={scrollToResources}
         scrollToSkills={scrollToSkills}
+        scrollToTop={scrollToTop}
       />
       <Grid item xs={12}>
         <section className={classes.homeImage}>
@@ -87,6 +91,7 @@ const HomePage = (props) => {
                 borderRadius: '25px',
                 '&:hover': { backgroundColor: '#555' },
               }}
+              onClick={scrollToResources}
             >
               View my work
               <ArrowForwardIcon

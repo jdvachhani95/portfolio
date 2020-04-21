@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, Fragment } from 'react';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import ContactMeForm from './ContactMeForm';
 
 const useStyles = makeStyles((theme) => ({
@@ -135,8 +135,7 @@ const NewNavbar = (props) => {
             <Button
               className={trans ? classes.transButton : classes.button}
               style={{ marginLeft: '80px' }}
-              component={Link}
-              to="/"
+              onClick={props.scrollToTop}
             >
               Home
             </Button>
