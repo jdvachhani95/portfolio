@@ -13,6 +13,7 @@ import SkillsChart from './SkillsChart';
 const useStyles = makeStyles((theme) => ({
   root: {
     // backgroundColor: '#e5eaee',
+    overflow: 'hidden',
   },
   titleName: {
     fontFamily: '"Allura", cursive',

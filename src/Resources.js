@@ -106,10 +106,14 @@ const Resources = (props) => {
                 </Typography>
                 <Button
                   variant="outlined"
-                  href="#outlined-buttons"
                   endIcon={<CloudDownloadIcon />}
                   className={classes.cardButton}
                   size="large"
+                  onClick={() =>
+                    window.open(
+                      'https://drive.google.com/open?id=1RiWt4acYWlixTvZmvZ4VlQfhth47QKDP'
+                    )
+                  }
                 >
                   download
                 </Button>
@@ -131,10 +135,12 @@ const Resources = (props) => {
                 </Typography>
                 <Button
                   variant="outlined"
-                  href="#outlined-buttons"
                   endIcon={<AssignmentIcon />}
                   className={classes.cardButton}
                   size="large"
+                  onClick={() =>
+                    window.open('https://damp-brook-39259.herokuapp.com/')
+                  }
                 >
                   visit blog
                 </Button>
@@ -155,10 +161,12 @@ const Resources = (props) => {
                 </Typography>
                 <Button
                   variant="outlined"
-                  href="#outlined-buttons"
                   endIcon={<PublicIcon />}
                   className={classes.cardButton}
                   size="large"
+                  onClick={() =>
+                    window.open('https://damp-brook-39259.herokuapp.com/')
+                  }
                 >
                   Website
                 </Button>
