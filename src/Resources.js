@@ -82,7 +82,7 @@ const Resources = (props) => {
         container
         style={{
           flexGrow: 1,
-          margin: '25px 0px',
+          margin: '25px 0px 100px',
         }}
         spacing={2}
       >
