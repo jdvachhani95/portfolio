@@ -141,16 +141,14 @@ const NewNavbar = (props) => {
 
             <Button
               className={trans ? classes.transButton : classes.button}
-              component={Link}
-              to="/skills"
+              onClick={props.scrollToSkills}
             >
               Skills
             </Button>
 
             <Button
               className={trans ? classes.transButton : classes.button}
-              component={Link}
-              to="/about"
+              onClick={props.scrollToResources}
             >
               Projects
             </Button>
