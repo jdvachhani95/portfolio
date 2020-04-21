@@ -6,6 +6,7 @@ import Background from './assests/homeImage.jpg';
 import './HomePage.css';
 import AboutMe from './AboutMe';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -90,6 +91,7 @@ const HomePage = (props) => {
       <div>
         <AboutMe />
       </div>
+      <Footer />
     </div>
   );
 };
