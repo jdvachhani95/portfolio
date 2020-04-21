@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Button } from '@material-ui/core';
+import { Grid, Button, Typography, Divider } from '@material-ui/core';
+import ContactMeForm from './ContactMeForm';
+//Icons
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -17,14 +19,13 @@ const usestyles = makeStyles((theme) => ({
     margin: '30px',
   },
   text: {
-    margin: 'auto',
+    margin: '100px auto 0px',
     textAlign: 'center',
-    fontFamily: 'freight-sans-pro Helvetica Neue Helvetica Arial sans-serif',
+    fontFamily: '"Allura", cursive',
     fontSize: '60px',
-    fontWeight: 'bold',
-    color: 'white',
+    fontWeight: 500,
+    color: '#1b242f',
     justifyContent: 'center',
-    borderBottom: '3px solid #c3c9c5',
   },
   body: {
     backgroundColor: '#c7ced9',
@@ -42,17 +43,47 @@ const usestyles = makeStyles((theme) => ({
     padding: '0px',
     margin: '10px',
   },
+  contactButton: {
+    fontFamily: 'sans-serif',
+    padding: '2px 27px',
+    textTransform: 'none',
+    fontSize: '19px',
+    borderRadius: '25px',
+    margin: '10px auto',
+  },
+  divider: {
+    height: '2px',
+    backgroundColor: '#e0e0e0',
+    width: '80%',
+    marginTop: '20px',
+  },
 }));
 const Footer = (props) => {
   const classes = usestyles();
-
+  const [open, setOpen] = useState(false);
   return (
     <div>
       <Grid item={12}>
         <section className={classes.body}>
-          <div>
-            <p className={classes.text}>Thank You </p>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              flexDirection: 'column',
+            }}
+          >
+            <Typography className={classes.text}>Thank You </Typography>
+            <Button
+              variant="contained"
+              endIcon={<MailOutlineRoundedIcon />}
+              className={classes.contactButton}
+              size="large"
+              onClick={() => setOpen(true)}
+            >
+              Contact Me
+            </Button>
           </div>
+          <Divider className={classes.divider} />
           <div className={classes.div}>
             <Button
               variant="contained"
@@ -67,7 +98,11 @@ const Footer = (props) => {
               />
             </Button>
 
-            <Button variant="contained" className={classes.circle}>
+            <Button
+              variant="contained"
+              className={classes.circle}
+              onClick={() => setOpen(true)}
+            >
               <MailOutlineRoundedIcon
                 disableElevation={true}
                 style={{ fontSize: '40px', margin: '0px' }}
@@ -100,6 +135,7 @@ const Footer = (props) => {
           </div>
         </section>
       </Grid>
+      <ContactMeForm open={open} setOpen={setOpen} />
     </div>
   );
 };
