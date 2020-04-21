@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, Fragment } from 'react';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
+import ContactMeForm from './ContactMeForm';
 
 const useStyles = makeStyles((theme) => ({
   transNavbar: {
@@ -91,6 +92,7 @@ const useStyles = makeStyles((theme) => ({
 
 const NewNavbar = (props) => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
   const [trans, setTrans] = useState(props.default === false ? false : true);
   const initialPos = useRef(window.pageYOffset);
   const changed = useRef(false);
@@ -155,14 +157,14 @@ const NewNavbar = (props) => {
 
             <Button
               className={trans ? classes.transButton : classes.button}
-              component={Link}
-              to="/contact/514"
+              onClick={() => setOpen(true)}
             >
               Contact
             </Button>
           </div>
         </div>
       </div>
+      <ContactMeForm open={open} setOpen={setOpen} />
     </Fragment>
   );
 };
