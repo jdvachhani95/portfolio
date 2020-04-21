@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
@@ -7,6 +7,8 @@ import './HomePage.css';
 import AboutMe from './AboutMe';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Resources from './Resources';
+import SkillsChart from './SkillsChart';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,10 +56,21 @@ const useStyles = makeStyles((theme) => ({
 
 const HomePage = (props) => {
   const classes = useStyles();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
+  const resourcesRef = useRef(null);
+  const scrollToResources = () => scrollToRef(resourcesRef);
+  const skillsRef = useRef(null);
+  const scrollToSkills = () => scrollToRef(skillsRef);
 
   return (
     <div className={classes.root}>
-      <Navbar />
+      <Navbar
+        scrollToResources={scrollToResources}
+        scrollToSkills={scrollToSkills}
+      />
       <Grid item xs={12}>
         <section className={classes.homeImage}>
           <div>
@@ -88,8 +101,14 @@ const HomePage = (props) => {
           </div>
         </section>
       </Grid>
-      <div>
-        <AboutMe />
+
+      <AboutMe />
+
+      <div ref={skillsRef}>
+        <SkillsChart />
+      </div>
+      <div ref={resourcesRef}>
+        <Resources />
       </div>
       <Footer />
     </div>
