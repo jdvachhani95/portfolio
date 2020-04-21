@@ -1,5 +1,18 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import { makeStyles } from '@material-ui/core/styles';
+import { Typography, Grid } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+  charts: {
+    color: '#1b242f',
+    textAlign: 'center',
+    fontFamily: '"Mada", sans-serif',
+    fontSize: '36px',
+    margin: '0px 0px 20px',
+    fontWeight: 600,
+  },
+}));
 
 const data = {
   labels: [
@@ -107,14 +120,27 @@ const options = {
   },
 };
 
-class PieChart extends React.Component {
-  render() {
-    return (
-      <div>
-        <Doughnut data={data} options={options} width={200} />
-      </div>
-    );
-  }
-}
+const SkillsChart = (props) => {
+  const classes = useStyles();
 
-export default PieChart;
+  return (
+    <div>
+      <Grid
+        item
+        xs={12}
+        style={{
+          justifyContent: 'center',
+          maxWidth: '600px',
+          margin: '0px auto',
+        }}
+      >
+        <Typography variant="h3" className={classes.charts}>
+          Skills I' good at.
+        </Typography>
+        <Doughnut data={data} options={options} width={200} />
+      </Grid>
+    </div>
+  );
+};
+
+export default SkillsChart;
