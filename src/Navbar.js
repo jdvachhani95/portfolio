@@ -1,8 +1,14 @@
 import React, { useState, useEffect, useRef, Fragment } from 'react';
-import { Button } from '@material-ui/core';
+import { Button, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Transition } from 'react-transition-group';
 // import { Link } from 'react-router-dom';
 import ContactMeForm from './ContactMeForm';
+import MobileNavMenu from './MobileNavMenu';
+
+//Icons
+import MenuIcon from '@material-ui/icons/Menu';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles((theme) => ({
   transNavbar: {
@@ -88,7 +94,54 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  //for mobile view
+  sectionDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'block',
+      height: '100%',
+    },
+  },
+  sectionMobile: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
+  mobileNav: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    height: '60px',
+    alignItems: 'center',
+    paddingLeft: '10px',
+  },
+  mobileOverlay: {
+    opacity: 0,
+    padding: theme.spacing(2),
+    height: '90vh',
+    width: '100%',
+    position: 'fixed',
+    zIndex: 1100,
+    left: 0,
+    top: 0,
+    backgroundColor: theme.palette.background.default,
+    boxShadow: '4px 4px 10px 0 rgba(0, 0, 0, 0.3)',
+  },
 }));
+
+const duration = 300;
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease`,
+  opacity: 0,
+};
+
+const transitionStyles = {
+  entering: { opacity: 1 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 1 },
+  exited: { opacity: 0 },
+};
 
 const NewNavbar = (props) => {
   const classes = useStyles();
@@ -98,6 +151,8 @@ const NewNavbar = (props) => {
   const changed = useRef(false);
   const navRef = useRef(null);
   const navOffset = useRef(0);
+
+  const [mobileOverlay, setMobileOverlay] = useState(false);
 
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset;
@@ -130,39 +185,77 @@ const NewNavbar = (props) => {
         id="1"
         ref={navRef}
       >
-        <div className={classes.wContainer}>
-          <div className={classes.buttonContainer}>
-            <Button
-              className={trans ? classes.transButton : classes.button}
-              style={{ marginLeft: '80px' }}
-              onClick={props.scrollToTop}
+        <div className={classes.sectionMobile}>
+          <div className={classes.mobileNav}>
+            <IconButton onClick={props.scrollToTop}>
+              <HomeIcon
+                className={trans ? classes.transButton : classes.button}
+              />
+            </IconButton>
+            <IconButton
+              onClick={() => {
+                setMobileOverlay((mobileOverlay) => !mobileOverlay);
+              }}
             >
-              Home
-            </Button>
+              <MenuIcon
+                className={trans ? classes.transButton : classes.button}
+              />
+            </IconButton>
+          </div>
+        </div>
+        <div className={classes.sectionDesktop}>
+          <div className={classes.wContainer}>
+            <div className={classes.buttonContainer}>
+              <Button
+                className={trans ? classes.transButton : classes.button}
+                style={{ marginLeft: '80px' }}
+                onClick={props.scrollToTop}
+              >
+                Home
+              </Button>
 
-            <Button
-              className={trans ? classes.transButton : classes.button}
-              onClick={props.scrollToSkills}
-            >
-              Skills
-            </Button>
+              <Button
+                className={trans ? classes.transButton : classes.button}
+                onClick={props.scrollToSkills}
+              >
+                Skills
+              </Button>
 
-            <Button
-              className={trans ? classes.transButton : classes.button}
-              onClick={props.scrollToResources}
-            >
-              Projects
-            </Button>
+              <Button
+                className={trans ? classes.transButton : classes.button}
+                onClick={props.scrollToResources}
+              >
+                Projects
+              </Button>
 
-            <Button
-              className={trans ? classes.transButton : classes.button}
-              onClick={() => setOpen(true)}
-            >
-              Contact
-            </Button>
+              <Button
+                className={trans ? classes.transButton : classes.button}
+                onClick={() => setOpen(true)}
+              >
+                Contact
+              </Button>
+            </div>
           </div>
         </div>
       </div>
+      <Transition in={mobileOverlay} timeout={500}>
+        {(state) => (
+          <div
+            style={{
+              ...defaultStyle,
+              ...transitionStyles[state],
+              display: mobileOverlay ? 'block' : 'none',
+            }}
+            className={classes.mobileOverlay}
+          >
+            <MobileNavMenu
+              setMobileOverlay={setMobileOverlay}
+              setScrollToResources={props.scrollToResources}
+              setScrollToSkills={props.scrollToSkills}
+            />
+          </div>
+        )}
+      </Transition>
       <ContactMeForm open={open} setOpen={setOpen} />
     </Fragment>
   );
