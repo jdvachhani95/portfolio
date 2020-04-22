@@ -12,7 +12,6 @@ import SkillsChart from './SkillsChart';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // backgroundColor: '#e5eaee',
     overflow: 'hidden',
   },
   titleName: {
@@ -39,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: '#E31B6D',
   },
-
   homeImage: {
     height: '100vh',
     width: '100%',
