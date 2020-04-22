@@ -7,8 +7,8 @@ import {
   InputAdornment,
   Dialog,
   DialogTitle,
-  //   DialogContent,
-  //   CircularProgress,
+  DialogContent,
+  CircularProgress,
   Divider,
   Modal,
 } from '@material-ui/core';
@@ -20,8 +20,8 @@ import contactForm from './assests/contactForm.jpg';
 //Icons
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import EmailIcon from '@material-ui/icons/Email';
-// import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-// import CancelIcon from '@material-ui/icons/Cancel';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import CancelIcon from '@material-ui/icons/Cancel';
 import { Clear } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
@@ -131,6 +131,26 @@ const ContactMeForm = ({ open, setOpen }) => {
   });
 
   const [showDialog, setShowDialog] = useState(false);
+  const [formLoading, setFormLoading] = useState(true);
+  const [formSuccess, setFormSuccess] = useState(true);
+
+  const sendFeedback = (templateId, variables) => {
+    window.emailjs
+      .send('jaydeepvachhani2@gmail.com', templateId, variables)
+      .then((res) => {
+        setFormLoading(false);
+        setFormSuccess(false);
+        console.log('Email successfully sent!');
+      })
+      // Handle errors here however you like, or use a React error boundary
+      .catch((err) => {
+        setFormLoading(false);
+        console.error(
+          'Oh well, you failed. Here some thoughts on the error that occured:',
+          err
+        );
+      });
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -169,8 +189,14 @@ const ContactMeForm = ({ open, setOpen }) => {
     if (!valid) {
       return;
     }
-
+    const templateId = 'template_x66jiHpl';
+    sendFeedback(templateId, {
+      message_html: state.message,
+      from_name: state.fullName,
+      reply_to: state.emailAddress,
+    });
     setShowDialog(true);
+    setState({ fullName: '', emailAddress: '', message: '' });
   };
 
   const handleChange = (name) => (event) => {
@@ -308,11 +334,11 @@ const ContactMeForm = ({ open, setOpen }) => {
       aria-labelledby="responsive-dialog-title"
     >
       <DialogTitle id="responsive-dialog-title">{'Processing... '}</DialogTitle>
-      {/* <DialogContent>
+      <DialogContent>
         <div style={{ textAlign: 'center', margin: '10px auto' }}>
-          {sendAPIContactMessageLoading ? (
+          {formLoading ? (
             <CircularProgress />
-          ) : sendAPIContactMessageError ? (
+          ) : formSuccess ? (
             <CancelIcon style={{ fontSize: '50px', color: 'red' }} />
           ) : (
             <CheckCircleOutlineIcon
@@ -320,7 +346,7 @@ const ContactMeForm = ({ open, setOpen }) => {
             />
           )}
         </div>
-      </DialogContent> */}
+      </DialogContent>
     </Dialog>
   );
 
