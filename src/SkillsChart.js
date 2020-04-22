@@ -135,7 +135,7 @@ const SkillsChart = (props) => {
         }}
       >
         <Typography variant="h3" className={classes.charts}>
-          Skills I' good at.
+          Skills I'm good at.
         </Typography>
         <Doughnut data={data} options={options} width={200} />
       </Grid>

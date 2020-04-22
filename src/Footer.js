@@ -16,7 +16,9 @@ const usestyles = makeStyles((theme) => ({
     margin: '15px',
   },
   div: {
-    margin: '30px',
+    [theme.breakpoints.up('sm')]: {
+      margin: '30px',
+    },
   },
   text: {
     margin: '100px auto 0px',
