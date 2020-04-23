@@ -14,7 +14,6 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import emailjs from 'emailjs-com';
-require('dotenv').config();
 
 //Images
 import contactForm from './assests/contactForm.jpg';
@@ -25,6 +24,7 @@ import EmailIcon from '@material-ui/icons/Email';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import CancelIcon from '@material-ui/icons/Cancel';
 import { Clear } from '@material-ui/icons';
+require('dotenv').config();
 
 const useStyles = makeStyles((theme) => ({
   root: {
