@@ -30,8 +30,8 @@ const AboutMe = (props) => {
             className={classes.content}
             style={{ textAlign: 'center' }}
           >
-            I'm a full stack developer, living in Toronto, Canada. I have a
-            passion for web developement & programming. I have 2+ years
+            I'm a full stack developer, living in Toronto, Canada. I am
+            passionate about Web development & Programming. I have 2+ years of
             experience in full stack development.
           </Typography>
         </div>

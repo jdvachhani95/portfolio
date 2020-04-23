@@ -131,7 +131,7 @@ const Resources = (props) => {
                   Blogs
                 </Typography>
                 <Typography variant="h6" className={classes.cardContent}>
-                  Visit the blogs i have written on medium.com
+                  Visit the blogs I have written on medium.com
                 </Typography>
                 <Button
                   variant="outlined"
@@ -157,7 +157,7 @@ const Resources = (props) => {
                   Projects
                 </Typography>
                 <Typography variant="h6" className={classes.cardContent}>
-                  Explore the projects i made so far.
+                  Explore the projects I made so far.
                 </Typography>
                 <Button
                   variant="outlined"
