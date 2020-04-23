@@ -13,6 +13,8 @@ import {
   Modal,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import emailjs from 'emailjs-com';
+require('dotenv').config();
 
 //Images
 import contactForm from './assests/contactForm.jpg';
@@ -135,8 +137,13 @@ const ContactMeForm = ({ open, setOpen }) => {
   const [formSuccess, setFormSuccess] = useState(true);
 
   const sendFeedback = (templateId, variables) => {
-    window.emailjs
-      .send('jaydeepvachhani2@gmail.com', templateId, variables)
+    emailjs
+      .send(
+        'jaydeepvachhani2@gmail.com',
+        templateId,
+        variables,
+        process.env.REACT_APP_USERKEY_EMAILJS
+      )
       .then((res) => {
         setFormLoading(false);
         setFormSuccess(false);
