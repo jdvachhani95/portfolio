@@ -17,12 +17,16 @@ const useStyles = makeStyles((theme) => ({
   titleName: {
     fontFamily: '"Allura", cursive',
     fontStyle: 'normal',
-    fontSize: '75px',
-    lineHeight: '85px',
+    fontSize: '55px',
+    lineHeight: '65px',
     fontWeight: 'normal',
     color: '#1b242f',
     margin: 'auto',
     textAlign: 'center',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '75px',
+      lineHeight: '85px',
+    },
   },
   subTitleName: {
     fontFamily: '"Mada", sans-serif',
