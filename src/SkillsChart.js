@@ -30,6 +30,7 @@ const data = {
     'TypeScript',
     'GitHub',
     'Data Structures',
+    'Circle Ci',
   ],
   datasets: [
     {
@@ -82,8 +83,8 @@ const data = {
         'JavaScript',
         'TypeScript',
         'GitHub',
-        'VScode',
         'Data Structures',
+        'Circle Ci',
       ],
       label: 'Outer',
     },
