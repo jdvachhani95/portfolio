@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d02c4029aef418b72ec8c1f1afa3098c",
+    "revision": "d39cd5fd9d77f89ae2593cef3f05ea1e",
     "url": "/portfolio/index.html"
   },
   {
-    "revision": "aab6be8fbbdba05004c5",
-    "url": "/portfolio/static/css/main.455927cf.chunk.css"
+    "revision": "356923b052e4a4edbd00",
+    "url": "/portfolio/static/css/main.91f48016.chunk.css"
   },
   {
     "revision": "cf1bcf2d62cb3bd5d3f7",
@@ -16,12 +16,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/portfolio/static/js/2.c6d6c6e5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "aab6be8fbbdba05004c5",
-    "url": "/portfolio/static/js/main.97ca63bc.chunk.js"
+    "revision": "356923b052e4a4edbd00",
+    "url": "/portfolio/static/js/main.d2f30789.chunk.js"
   },
   {
     "revision": "6c1d3ad26a766dc494c1",
     "url": "/portfolio/static/js/runtime-main.d597d31e.js"
+  },
+  {
+    "revision": "f58c84c23bb648917a9450346838267c",
+    "url": "/portfolio/static/media/Allura-Regular.f58c84c2.ttf"
+  },
+  {
+    "revision": "4b1cba171e87e90c8482eab1c06ea261",
+    "url": "/portfolio/static/media/Mada-Regular.4b1cba17.ttf"
   },
   {
     "revision": "fd5f85f5698c331559f08fca478fedec",
