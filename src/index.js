@@ -8,7 +8,7 @@ import WebFont from 'webfontloader';
 WebFont.load({
   google: {
     families: [
-      'Allura',
+      // 'Allura',
       'sans-serif',
       'brandon-grotesque',
       'HelveticaNeue-Light',
@@ -17,7 +17,7 @@ WebFont.load({
       'Helvetica',
       'Arial',
       'Lucida Grande',
-      'Mada',
+      // 'Mada',
     ],
   },
 });

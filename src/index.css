@@ -1,8 +1,17 @@
+@font-face {
+  font-family: 'Allura';
+  src: local('Allura'), url(./fonts/Allura-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Mada';
+  src: local('Mada'), url(./fonts/Mada-Regular.ttf) format('truetype');
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family:sans-serif;
+  font-family: sans-serif;
   position: relative;
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
