@@ -111,7 +111,7 @@ const Resources = (props) => {
                   size="large"
                   onClick={() =>
                     window.open(
-                      'https://drive.google.com/open?id=1RiWt4acYWlixTvZmvZ4VlQfhth47QKDP'
+                      'https://drive.google.com/open?id=1sxxMhq6xoyixblw0-rwqmSJsmstF3sL5'
                     )
                   }
                 >
